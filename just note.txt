@@ -1,0 +1,38 @@
+Paste this in terminal whenever u want to access mysql in terminal
+(This command opens the MySQL CLI and asks for your password so you can access MySQL and execute SQL queries directly in the terminal.
+In short: Terminal → MySQL CLI → MySQL Server → Execute SQL queries)
+
+& "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u root -p
+
+
+
+
+
+CLI = Command-Line Interface
+It lets you interact with a program by typing commands instead of clicking buttons.
+For example:
+- MySQL CLI: Run SQL commands in the terminal.
+- MySQL Workbench: Use a graphical interface with buttons, menus, and an SQL editor
+
+
+4th Way : Using SQL Files
+
+& "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -u root -p
+>> 
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.46 MySQL Community Server - GPL
+
+
+mysql> USE delta_app;
+Database changed
+
+
+mysql> source schema.sql
++---------------------+
+| Tables_in_delta_app |
++---------------------+
+| temp                |
++---------------------+
+1 row in set (0.01 sec)
