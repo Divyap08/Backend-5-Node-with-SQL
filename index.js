@@ -9,28 +9,33 @@ const connection = mysql.createConnection({
     password: "mysql8"
 });
 
-let q = "SHOW TABLES";
+//here we r returning array using faker
+let getRandomUser = () => {
+  return [
+    faker.string.uuid(),
+    faker.internet.username(),
+    faker.internet.email(),
+    faker.internet.password(),
+  ];
+}
+
+//Inserting new data
+let q = "INSERT INTO user (id, username, email, password) VALUES ?";
+
+let data = [];
+for(let i=0; i<=100; i++) {
+  data.push(getRandomUser());   //100 fake data
+}
 
 try {  
-   connection.query(q, (err, result) => {
+   connection.query(q, [data], (err, result) => {
     if (err) throw err;
     console.log(result);
-    console.log(result.length);
-    console.log(result[0]);
-    console.log(result[1]);
    });
 } catch (err) {
     console.log(err);
 }
  connection.end();
 
-let getRandomUser = () => {
-  return {
-    id: faker.string.uuid(),
-    username: faker.internet.username(),
-    email: faker.internet.email(),
-    password: faker.internet.password(),
-  };
-}
 
-console.log(getRandomUser());
+

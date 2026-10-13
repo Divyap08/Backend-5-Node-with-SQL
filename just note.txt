@@ -36,3 +36,15 @@ mysql> source schema.sql
 | temp                |
 +---------------------+
 1 row in set (0.01 sec)
+
+//Inserting new data
+
+
+mysql> SELECT * FROM user;
+
++-----+----------+---------------+----------+
+| id  | username | email         | password |
++-----+----------+---------------+----------+
+| 111 | 123_new  | abc@gmail.com | abc      |
++-----+----------+---------------+----------+
+1 row in set (0.00 sec)
