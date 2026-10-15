@@ -48,3 +48,29 @@ mysql> SELECT * FROM user;
 | 111 | 123_new  | abc@gmail.com | abc      |
 +-----+----------+---------------+----------+
 1 row in set (0.00 sec)
+
+
+
+// added new row
+
+INSERT INTO user(id, username, email, password) VALUES ("mmfd", "Mihir", "mihir12@gmail.com", "123mihir@pise");
+
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT count(*) FROM user;
++----------+
+| count(*) |
++----------+
+|      105 |
++----------+
+
+
+INSERT INTO user(id, username, email, password) VALUES ("mmfd", "Mihir", "mihir12@gmail.com", "123mihir@pise");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT count(*) FROM user;
++----------+
+| count(*) |
++----------+
+|      105 |
++----------+
