@@ -34,8 +34,7 @@ for(let i=0; i<=110; i++) {
 }
 
 
-
-
+//Home route
 app.get("/", (req, res) => {
   let q = `SELECT count(*) FROM user`;
 
@@ -51,6 +50,26 @@ app.get("/", (req, res) => {
   }
 });
 
+
+//Show Route
+
+app.get("/user", (req, res) => {
+   let q = `SELECT * FROM user`;
+
+  try {  
+   connection.query(q, (err, result) => {
+    if (err) throw err;
+    
+    // res.send(result);
+      res.render("showusers.ejs", { result });
+   });
+  } catch (err) {
+   console.log("Some err in DB");
+   res.send("Error");
+  }
+
+});
+
 //start server
 app.listen("8080", () => {
   console.log("server is listening on port 8080");
@@ -59,6 +78,6 @@ app.listen("8080", () => {
 
 
 
-// connection.end();
+
 
 
