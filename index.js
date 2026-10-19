@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
+const { v4: uuidv4 } = require("uuid");
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended:true }));
@@ -120,6 +121,32 @@ app.patch("/user/:id", (req, res) => {
    res.send("Error");
   }    
 });
+
+
+//Adding new user Route
+
+app.get("/user/add", (req,res) => {
+  
+  res.render("add.ejs");
+});
+
+app.post("/user/add", (req, res) => {
+  let { username, email, password } = req.body;
+  let id = uuidv4();
+  //Query to Insert New User
+  let q = `INSERT INTO user (id, username, email, password) VALUES ('${id}','${username}','${email}','${password}') `;
+
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      console.log("added new user");
+      res.redirect("/user");
+    });
+  } catch (err) {
+    res.send("some error occurred");
+  }
+});
+
 
 //start server
 app.listen("8080", () => {
