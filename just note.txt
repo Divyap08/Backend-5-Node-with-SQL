@@ -1,4 +1,4 @@
-Paste this in terminal whenever u want to access mysql in terminal
+Paste this in terminal whenever u want to access mysql in terminal + write mysql password
 (This command opens the MySQL CLI and asks for your password so you can access MySQL and execute SQL queries directly in the terminal.
 In short: Terminal → MySQL CLI → MySQL Server → Execute SQL queries)
 
