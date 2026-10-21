@@ -151,6 +151,8 @@ app.post("/user/add", (req, res) => {
 });
 
 
+const PORT = process.env.PORT || 8080;
+
 //start server
 app.listen("8080", () => {
   console.log("server is listening on port 8080");
